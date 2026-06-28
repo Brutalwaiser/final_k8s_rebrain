@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: librespeed
+  namespace: final
+  labels:
+    app.kubernetes.io/instance: librespeed
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/instance: librespeed
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80

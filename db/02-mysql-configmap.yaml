@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+  namespace: db
+  labels:
+    app: db
+data:
+  # Несекретные параметры инициализации MySQL.
+  MYSQL_DATABASE: "speedtest"
+  MYSQL_USER: "speedtest"

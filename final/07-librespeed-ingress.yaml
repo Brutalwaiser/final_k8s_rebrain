@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: librespeed-ingress
+  namespace: final
+  labels:
+    app.kubernetes.io/instance: librespeed
+  annotations:
+    # Отключаем форсирование https (по заданию).
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    # Прокидываем реальный IP клиента в приложение.
+    # ingress-nginx по умолчанию ставит X-Forwarded-For / X-Real-IP,
+    # эти аннотации гарантируют, что заголовки не вырежутся и compute-full-forwarded-for включён.
+    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    # nip.io резолвит <ip>.nip.io -> сам IP, удобно без правки DNS/hosts.
+    - host: librespeed.84.201.168.40.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: librespeed
+                port:
+                  number: 80

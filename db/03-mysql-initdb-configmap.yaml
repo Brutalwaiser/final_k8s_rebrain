@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb
+  namespace: db
+  labels:
+    app: db
+data:
+  # Структура БД телеметрии librespeed (results/telemetry_mysql.sql).
+  # Монтируется в /docker-entrypoint-initdb.d/ — официальный образ mysql
+  # выполняет все *.sql при первом запуске (пустой dataDir).
+  telemetry_mysql.sql: |
+    SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+    START TRANSACTION;
+    SET time_zone = "+00:00";
+
+    CREATE TABLE IF NOT EXISTS `speedtest_users` (
+      `id` int(11) NOT NULL,
+      `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      `ip` text NOT NULL,
+      `ispinfo` text,
+      `extra` text,
+      `ua` text NOT NULL,
+      `lang` text NOT NULL,
+      `dl` text,
+      `ul` text,
+      `ping` text,
+      `jitter` text,
+      `log` longtext
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+    ALTER TABLE `speedtest_users`
+      ADD PRIMARY KEY (`id`);
+
+    ALTER TABLE `speedtest_users`
+      MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+    COMMIT;

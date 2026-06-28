@@ -1,0 +1,233 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: librespeed-servers
+  namespace: final
+  labels:
+    app.kubernetes.io/instance: librespeed
+data:
+  servers.json: |
+    [
+      {
+        "name": "Helsinki, Finland (1) (Hetzner)",
+        "server": "//fi1.backend.librespeed.org/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Helsinki, Finland (2) (Hetzner)",
+        "server": "https://fi2.backend.librespeed.org:8443/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name":"Helsinki, Finland (3) (Hetzner)",
+        "server":"//fi.openspeed.org",
+        "dlURL":"garbage.php",
+        "ulURL":"empty.php",
+        "pingURL":"empty.php",
+        "getIpURL":"getIP.php"
+      },
+      {
+        "name": "Helsinki, Finland (4) (Hetzner)",
+        "server": "https://ls.fexiven.de:8443/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Helsinki, Finland (5) (Hetzner)",
+        "server": "//fast.kabi.tk/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Paris, France (Hurricane Electric)",
+        "server": "//librespeed.louifox.house/",
+        "dlURL": "backend/garbage.php",
+        "ulURL": "backend/empty.php",
+        "pingURL": "backend/empty.php",
+        "getIpURL": "backend/getIP.php"
+      },
+      {
+        "name": "Paris, France (online.net)",
+        "server": "//fr1.backend.librespeed.org/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Falkenstein, Germany (Hetzner)",
+        "server": "//de4.backend.librespeed.org/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Nuremberg, Germany (1) (Hetzner)",
+        "server": "//de1.backend.librespeed.org/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Nuremberg, Germany (2) (netcup)",
+        "server": "//de2.backend.librespeed.org/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Nuremberg, Germany (3) (Hetzner)",
+        "server": "//de3.backend.librespeed.org/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Nuremberg, Germany (4) (Hetzner)",
+        "server": "//de5.backend.librespeed.org/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Nuremberg, Germany (5) (Hetzner)",
+        "server": "https://speedtest.ciapa.tech/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name":"Bari, Italy (GARR)",
+        "server":"//st-be-ba1.infra.garr.it",
+        "dlURL":"garbage.php",
+        "ulURL":"empty.php",
+        "pingURL":"empty.php",
+        "getIpURL":"getIP.php"
+      },
+      {
+        "name":"Bologna, Italy (GARR)",
+        "server":"//st-be-bo1.infra.garr.it",
+        "dlURL":"garbage.php",
+        "ulURL":"empty.php",
+        "pingURL":"empty.php",
+        "getIpURL":"getIP.php"
+      },
+      {
+        "name":"Roma, Italy (GARR)",
+        "server":"//st-be-rm2.infra.garr.it",
+        "dlURL":"garbage.php",
+        "ulURL":"empty.php",
+        "pingURL":"empty.php",
+        "getIpURL":"getIP.php"
+      },
+      {
+        "name": "Vilnius, Lithuania (Time4VPS)",
+        "server": "//librespeed.fossdaily.xyz/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Las Vegas, United States (BuyVM)",
+        "server": "https://lv1.backend.librespeed.nixnet.services/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "New York, United States (BuyVM)",
+        "server": "https://ny1.backend.librespeed.nixnet.services/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Roost, Luxembourg (BuyVM)",
+        "server": "https://lux1.backend.librespeed.nixnet.services/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Borås, Sweden (Linux.Pizza)",
+        "server": "//se1.speedtest.linux.pizza/",
+        "dlURL": "garbage.php",
+        "ulURL": "empty.php",
+        "pingURL": "empty.php",
+        "getIpURL": "getIP.php"
+      },
+      {
+        "name": "Amsterdam, Netherlands",
+        "server": "http://spd-nlsrv.hostkey.com/",
+        "id": 1,
+        "dlURL": "garbage",
+        "ulURL": "empty",
+        "pingURL": "empty",
+        "getIpURL": "getIP"
+      },
+      {
+        "name": "Helsinki, Finland",
+        "server": "http://spd-fisrv.hostkey.com/",
+        "id": 2,
+        "dlURL": "garbage",
+        "ulURL": "empty",
+        "pingURL": "empty",
+        "getIpURL": "getIP"
+      },
+      {
+        "name": "NewYork, USA",
+        "server": "http://spd-uswb.hostkey.com/",
+        "id": 3,
+        "dlURL": "garbage",
+        "ulURL": "empty",
+        "pingURL": "empty",
+        "getIpURL": "getIP"
+      },
+      {
+        "name": "Frankfurt, Germany",
+        "server": "http://spd-desrv.hostkey.com/",
+        "id": 4,
+        "dlURL": "garbage",
+        "ulURL": "empty",
+        "pingURL": "empty",
+        "getIpURL": "getIP"
+      },
+      {
+        "name": "Reykjavik, Iceland",
+        "server": "http://spd-icsrv.hostkey.com/",
+        "id": 5,
+        "dlURL": "garbage",
+        "ulURL": "empty",
+        "pingURL": "empty",
+        "getIpURL": "getIP"
+      },
+      {
+        "name": "Türkiy, Istanbul",
+        "server": "http://spd-tr.hostkey.com/",
+        "id": 6,
+        "dlURL": "garbage",
+        "ulURL": "empty",
+        "pingURL": "empty",
+        "getIpURL": "getIP"
+      }
+    ]

@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: librespeed
+  namespace: final
+  labels:
+    app.kubernetes.io/instance: librespeed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: librespeed
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: librespeed
+    spec:
+      imagePullSecrets:
+        - name: registrysecret
+      containers:
+        - name: librespeed
+          image: registry.rebrainme.com/workshops/middle/kubernetes-local/newplatform_autochecks/speedtest:5.3
+          ports:
+            - containerPort: 80
+          # Несекретные переменные пачкой из configmap.
+          envFrom:
+            - configMapRef:
+                name: librespeed-env
+          # Секреты — отдельными ключами.
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: librespeed-secret
+                  key: DB_PASSWORD
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: librespeed-secret
+                  key: PASSWORD
+          volumeMounts:
+            - name: servers
+              mountPath: /servers.json
+              subPath: servers.json
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 20
+            periodSeconds: 10
+      volumes:
+        - name: servers
+          configMap:
+            name: librespeed-servers

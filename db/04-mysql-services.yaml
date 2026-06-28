@@ -1,0 +1,34 @@
+# ClusterIP-сервис — стабильная точка подключения для приложения.
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: db
+  labels:
+    app: db
+spec:
+  type: ClusterIP
+  selector:
+    app: db
+  ports:
+    - name: mysql
+      port: 3306
+      targetPort: 3306
+---
+# Headless-сервис — нужен StatefulSet'у для стабильных DNS-имён подов
+# (mysql-0.mysql-headless.db.svc.cluster.local).
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-headless
+  namespace: db
+  labels:
+    app: db
+spec:
+  clusterIP: None
+  selector:
+    app: db
+  ports:
+    - name: mysql
+      port: 3306
+      targetPort: 3306

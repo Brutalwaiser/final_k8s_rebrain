@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: librespeed-env
+  namespace: final
+  labels:
+    app.kubernetes.io/instance: librespeed
+data:
+  # --- режим работы по заданию ---
+  MODE: "frontend"                  # frontend-режим
+  TELEMETRY: "true"                 # хранение телеметрии
+  ENABLE_ID_OBFUSCATION: "true"     # обфускация ID
+  REDACT_IP_ADDRESSES: "true"       # запрет показа/редактирования IP
+  # --- БД ---
+  DB_TYPE: "mysql"
+  DB_HOSTNAME: "mysql.db.svc.cluster.local"
+  DB_PORT: "3306"
+  DB_NAME: "speedtest"
+  DB_USERNAME: "speedtest"
+  # --- прочее ---
+  WEBPORT: "80"
+  EMAIL: "privacy@example.com"      # обязателен при TELEMETRY=true (GDPR)
+  IPINFO_APIKEY: ""
